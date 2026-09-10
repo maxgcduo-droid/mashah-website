@@ -25,7 +25,8 @@
         * { box-sizing: border-box; }
         body { background: #0f172a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         .hero-video-wrap { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .hero-video-bg { position: absolute; top: 50%; left: 50%; width: 177.77vh; min-width: 100%; height: 56.25vw; min-height: 100%; transform: translate(-50%, -50%); z-index: 0; pointer-events: none; }
+        .hero-static-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-static-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.9)); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
         .service-flyer { border-radius: 0.75rem; overflow: hidden; border: 2px solid rgba(251,191,36,0.25); background: #fff; transition: transform 0.3s ease; }
@@ -63,14 +64,13 @@
         </div>
     </nav>
 
-    <!-- Hero with YouTube video background -->
+    <!-- Hero with branded background -->
     <section class="hero-video-wrap px-6 pt-20">
-        <div class="hero-video-bg">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=UU1PQ60NnUqVkA6VVMiMG4Ww&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&playsinline=1" title="Professor MA Shah" frameborder="0" allow="autoplay; encrypted-media" style="pointer-events:none;"></iframe>
+        <div class="hero-static-bg">
+            <img src="images/hero-banner-gold.jpeg" alt="Professor Palmist MA Shah">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content text-center max-w-4xl">
-            <img src="images/cafe-portrait-1.jpeg" class="w-24 h-24 rounded-full object-cover avatar-ring mx-auto mb-6" alt="Professor Palmist MA Shah">
             <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">Professor Palmist MA Shah</h1>
             <p class="text-xl md:text-2xl text-amber-300 mb-4 font-semibold">Best Astrologer & Palmist in Houston, Texas</p>
             <p class="text-lg text-amber-400 mb-4 font-semibold">FREE Istikhara &bull; Spiritual Guidance &bull; Islamic Scholar</p>
