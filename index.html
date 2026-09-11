@@ -23,47 +23,70 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * { box-sizing: border-box; }
-        body { background: #0f172a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        body { background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        ::selection { background: rgba(251,191,36,0.3); color: #fff; }
+
+        /* Premium reveal-on-scroll */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+        /* Glass nav */
+        nav.glass-nav { background: rgba(10,14,26,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(251,191,36,0.12); }
+
         .hero-video-wrap { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .hero-static-bg { position: absolute; inset: 0; z-index: 0; }
-        .hero-static-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
-        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.9)); z-index: 1; }
+        .hero-static-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; transform: scale(1.08); animation: heroZoom 18s ease-in-out infinite alternate; }
+        @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1.16); } }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,14,26,0.55) 0%, rgba(10,14,26,0.85) 60%, rgba(10,14,26,0.97) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
-        .service-flyer { border-radius: 0.75rem; overflow: hidden; border: 2px solid rgba(251,191,36,0.25); background: #fff; transition: transform 0.3s ease; }
-        .service-flyer:hover { transform: translateY(-6px); }
+        .hero-content h1 { background: linear-gradient(135deg, #fff 30%, #fde68a 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em; }
+        .gold-glow { text-shadow: 0 0 30px rgba(251,191,36,0.35); }
+        .btn-primary { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 8px 30px rgba(245,158,11,0.35); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,158,11,0.5); }
+        .btn-outline { transition: all 0.3s ease; backdrop-filter: blur(4px); }
+        .btn-outline:hover { transform: translateY(-3px); background: rgba(251,191,36,0.1); box-shadow: 0 8px 24px rgba(251,191,36,0.15); }
+
+        .service-flyer { border-radius: 1rem; overflow: hidden; border: 1px solid rgba(251,191,36,0.15); background: #12172a; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
+        .service-flyer:hover { transform: translateY(-8px); border-color: rgba(251,191,36,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         .service-flyer img { width: 100%; display: block; }
-        .flyer-card { display: flex; border-radius: 0.75rem; overflow: hidden; border: 1px solid rgba(217,164,65,0.25); background: #14100a; transition: transform 0.3s ease; }
-        .flyer-card:hover { transform: translateY(-6px); }
-        .flyer-photo { flex: 0 0 40%; min-height: 220px; background-size: cover; background-position: center; }
+        .flyer-card { display: flex; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(217,164,65,0.2); background: #14100a; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
+        .flyer-card:hover { transform: translateY(-8px) scale(1.01); border-color: rgba(217,164,65,0.5); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+        .flyer-photo { flex: 0 0 40%; min-height: 220px; background-size: cover; background-position: center; transition: transform 0.5s ease; }
+        .flyer-card:hover .flyer-photo { transform: scale(1.05); }
         .flyer-text { flex: 1; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
         .flyer-text h3 { color: #f3ead9; font-size: 1.15rem; margin: 0 0 6px; font-weight: 700; }
         .flyer-text p.sub { color: #c9b892; font-size: 0.85rem; margin: 0 0 12px; }
-        .flyer-divider { height: 1px; background: rgba(217,164,65,0.3); margin: 10px 0; }
+        .flyer-divider { height: 1px; background: linear-gradient(90deg, rgba(217,164,65,0.5), transparent); margin: 10px 0; }
         .flyer-text p.contact-name { color: #f3ead9; font-size: 0.9rem; margin: 0 0 2px; font-weight: 600; }
         .flyer-text p.contact-num { color: #d9a441; font-size: 0.95rem; margin: 0; font-weight: 700; }
-        .card { transition: all 0.3s ease; }
-        .card:hover { transform: translateY(-8px); }
+        .card { transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-        .photo-card { border-radius: 0.75rem; overflow: hidden; border: 2px solid rgba(251, 191, 36, 0.2); position: relative; }
-        .photo-card img { width: 100%; height: 320px; object-fit: cover; display: block; transition: transform 0.4s ease; }
-        .photo-card:hover img { transform: scale(1.05); }
+        .photo-card { border-radius: 1rem; overflow: hidden; border: 1px solid rgba(251, 191, 36, 0.15); position: relative; transition: all 0.4s ease; }
+        .photo-card:hover { border-color: rgba(251,191,36,0.5); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .photo-card img { width: 100%; height: 320px; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+        .photo-card:hover img { transform: scale(1.08); }
         .photo-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.95), transparent); padding: 1.5rem 1rem 1rem; text-align: center; font-weight: bold; color: #fbbf24; }
+
+        /* Stat counters */
+        .stat-num { background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
         /* 3D Carousel using real photos */
         .carousel-3d-wrap { perspective: 1400px; padding: 2rem 0 4rem; }
         .carousel-3d { position: relative; height: 380px; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; }
-        .carousel-3d .slide { position: absolute; width: 260px; height: 340px; border-radius: 0.75rem; overflow: hidden; border: 2px solid rgba(251,191,36,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.6); transition: transform 0.6s ease, opacity 0.6s ease; }
+        .carousel-3d .slide { position: absolute; width: 260px; height: 340px; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(251,191,36,0.25); box-shadow: 0 25px 60px rgba(0,0,0,0.7); transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), opacity 0.7s ease; }
         .carousel-3d .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .carousel-3d .slide .cap { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15,23,42,0.85); padding: 0.75rem; text-align: center; font-weight: bold; color: #fbbf24; font-size: 0.9rem; }
+        .carousel-3d .slide .cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15,23,42,0.95), transparent); padding: 1.25rem 0.75rem 0.75rem; text-align: center; font-weight: bold; color: #fbbf24; font-size: 0.9rem; }
         .carousel-nav { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
-        .carousel-nav button { background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.4); color: #fbbf24; width: 44px; height: 44px; border-radius: 50%; font-size: 1.25rem; cursor: pointer; transition: background 0.2s; }
-        .carousel-nav button:hover { background: rgba(251,191,36,0.3); }
+        .carousel-nav button { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); color: #fbbf24; width: 48px; height: 48px; border-radius: 50%; font-size: 1.25rem; cursor: pointer; transition: all 0.3s ease; }
+        .carousel-nav button:hover { background: rgba(251,191,36,0.25); transform: scale(1.1); }
+
         .avatar-ring { border: 3px solid #fbbf24; border-radius: 9999px; }
     </style>
 </head>
 <body class="text-gray-100">
     <!-- Nav -->
-    <nav class="fixed w-full top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-amber-500/10">
+    <nav class="fixed w-full top-0 z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <img src="images/cafe-portrait-1.jpeg" class="w-10 h-10 rounded-full object-cover avatar-ring" alt="Professor MA Shah">
@@ -80,21 +103,21 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content text-center max-w-4xl">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">Professor Palmist MA Shah</h1>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Professor Palmist MA Shah</h1>
             <p class="text-xl md:text-2xl text-amber-300 mb-4 font-semibold">Best Astrologer & Palmist in Houston, Texas, USA</p>
             <p class="text-md text-gray-300 mb-2">📍 Proudly based in Houston, Texas — serving local clients across the Houston metro area and nationwide USA</p>
             <p class="text-lg text-amber-400 mb-4 font-semibold">FREE Istikhara &bull; Spiritual Guidance &bull; Islamic Scholar</p>
             <p class="text-lg text-gray-200 mb-3">Hisab &bull; Zaicha &bull; Ismay Azam &bull; Wazifa &bull; Dua</p>
             <p class="text-gray-300 mb-8">30+ Years Experience &bull; TV & Media Featured &bull; Serving Houston, Texas & USA-Wide</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/16194320452?text=Free%20Istikhara%20consultation" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-lg transition">📱 Free Istikhara Now</a>
-                <a href="#services" class="border-2 border-amber-400 text-amber-300 hover:bg-amber-500/10 font-bold py-4 px-8 rounded-lg transition">Our Services</a>
+                <a href="https://wa.me/16194320452?text=Free%20Istikhara%20consultation" target="_blank" class="btn-primary text-white font-bold py-4 px-8 rounded-lg">📱 Free Istikhara Now</a>
+                <a href="#services" class="btn-outline border-2 border-amber-400 text-amber-300 font-bold py-4 px-8 rounded-lg">Our Services</a>
             </div>
         </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="bg-slate-900 py-24 px-6">
+    <section id="services" class="reveal bg-slate-900 py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white">Spiritual Services & Consultations</h2>
             <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">Professional guidance rooted in the Qur'an & Sunnah — private, honest, and never rushed.</p>
@@ -110,7 +133,7 @@
     </section>
 
     <!-- Specialized Services (Flyers) -->
-    <section id="specialized-services" class="bg-slate-800/40 py-24 px-6">
+    <section id="specialized-services" class="reveal bg-slate-800/40 py-24 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white">Specialized Islamic Spiritual Solutions</h2>
             <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">100% Shariah-compliant guidance rooted in the Quran and Sunnah — for marriage, finances, business, healing, career, and marital harmony.</p>
@@ -200,7 +223,7 @@
     </section>
 
     <!-- 3D Photo Carousel -->
-    <section class="bg-slate-800/40 py-16 px-6 overflow-hidden">
+    <section class="reveal bg-slate-800/40 py-16 px-6 overflow-hidden">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-2 text-white">Client Consultations</h2>
             <p class="text-center text-gray-400 mb-4">Real sessions, real guidance — Houston, Texas & beyond</p>
@@ -219,7 +242,7 @@
     </section>
 
     <!-- Media / TV Appearances -->
-    <section id="media" class="bg-slate-900 py-24 px-6">
+    <section id="media" class="reveal bg-slate-900 py-24 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white">TV & Media Appearances</h2>
             <p class="text-center text-gray-400 mb-16">Featured on "Rohani Dunya Insani Masail" and other national programs</p>
@@ -238,7 +261,7 @@
     </section>
 
     <!-- Client Consultations Gallery -->
-    <section id="gallery" class="bg-slate-800/40 py-24 px-6">
+    <section id="gallery" class="reveal bg-slate-800/40 py-24 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Trusted by Clients Worldwide</h2>
             <p class="text-gray-400 max-w-2xl mx-auto">From in-person palm readings to spiritual consultations, Professor MA Shah has guided clients across the Middle East, Europe, Asia, America, and Canada for over three decades.</p>
@@ -246,7 +269,7 @@
     </section>
 
     <!-- About -->
-    <section class="bg-slate-900 py-24 px-6">
+    <section class="reveal bg-slate-900 py-24 px-6">
         <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10 items-center">
             <div class="md:col-span-1">
                 <img src="images/marketing-banner-urdu.jpeg" alt="Professor Palmist MA Shah" class="rounded-lg border border-amber-500/20 w-full">
@@ -256,16 +279,16 @@
                 <p class="text-lg text-gray-300 mb-4">Professor MA Shah is a renowned astrologer, palmist, and Islamic spiritual scholar based in Houston, Texas, with over 30 years of experience serving clients across the Middle East, Europe, Asia, America, and Canada.</p>
                 <p class="text-lg text-gray-300 mb-6">Featured on national television programs, he offers free istikhara guidance, expert astrology and palmistry readings, and authentic Islamic spiritual consultations — Hisab, Zaicha, Ismay Azam, Wazifa & Dua.</p>
                 <div class="grid grid-cols-3 gap-6">
-                    <div class="text-center"><div class="text-3xl font-bold text-amber-400">30+</div><p class="text-gray-400 text-sm">Years</p></div>
-                    <div class="text-center"><div class="text-3xl font-bold text-amber-400">TV</div><p class="text-gray-400 text-sm">Featured</p></div>
-                    <div class="text-center"><div class="text-3xl font-bold text-amber-400">USA</div><p class="text-gray-400 text-sm">Houston Based</p></div>
+                    <div class="text-center"><div class="text-3xl font-bold stat-num">30+</div><p class="text-gray-400 text-sm">Years</p></div>
+                    <div class="text-center"><div class="text-3xl font-bold stat-num">TV</div><p class="text-gray-400 text-sm">Featured</p></div>
+                    <div class="text-center"><div class="text-3xl font-bold stat-num">USA</div><p class="text-gray-400 text-sm">Houston Based</p></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="bg-slate-800/40 py-24 px-6">
+    <section id="contact" class="reveal bg-slate-800/40 py-24 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">Free Consultation — Houston, Texas</h2>
             <p class="text-lg text-gray-400 mb-12">Message any time for free istikhara, astrology, or palmistry guidance. Private and confidential.</p>
@@ -308,6 +331,16 @@
         function rotateCarousel(dir) { carouselAngle = (carouselAngle + dir + total) % total; renderCarousel(); }
         renderCarousel();
         setInterval(() => rotateCarousel(1), 4000);
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
