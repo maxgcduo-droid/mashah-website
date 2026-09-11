@@ -32,6 +32,15 @@
         .service-flyer { border-radius: 0.75rem; overflow: hidden; border: 2px solid rgba(251,191,36,0.25); background: #fff; transition: transform 0.3s ease; }
         .service-flyer:hover { transform: translateY(-6px); }
         .service-flyer img { width: 100%; display: block; }
+        .flyer-card { display: flex; border-radius: 0.75rem; overflow: hidden; border: 1px solid rgba(217,164,65,0.25); background: #14100a; transition: transform 0.3s ease; }
+        .flyer-card:hover { transform: translateY(-6px); }
+        .flyer-photo { flex: 0 0 40%; min-height: 220px; background-size: cover; background-position: center; }
+        .flyer-text { flex: 1; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .flyer-text h3 { color: #f3ead9; font-size: 1.15rem; margin: 0 0 6px; font-weight: 700; }
+        .flyer-text p.sub { color: #c9b892; font-size: 0.85rem; margin: 0 0 12px; }
+        .flyer-divider { height: 1px; background: rgba(217,164,65,0.3); margin: 10px 0; }
+        .flyer-text p.contact-name { color: #f3ead9; font-size: 0.9rem; margin: 0 0 2px; font-weight: 600; }
+        .flyer-text p.contact-num { color: #d9a441; font-size: 0.95rem; margin: 0; font-weight: 700; }
         .card { transition: all 0.3s ease; }
         .card:hover { transform: translateY(-8px); }
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
@@ -105,11 +114,69 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white">Specialized Islamic Spiritual Solutions</h2>
             <p class="text-center text-gray-400 mb-16 max-w-3xl mx-auto">100% Shariah-compliant guidance rooted in the Quran and Sunnah — for marriage, finances, business, healing, career, and marital harmony.</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-flyer">
-                    <img src="images/services/life-partner-2.jpeg" alt="Find Your Life Partner - Islamic Marriage Guidance Houston">
-                    <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Find Your Life Partner</h3><p class="text-gray-400 text-sm mb-3">Sincere, Shariah-compliant marriage guidance — sincere proposals, family involvement, Quranic direction, and compatibility matching.</p><a href="https://wa.me/16194320452?text=I%20need%20help%20finding%20my%20life%20partner" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="flyer-card">
+                    <div class="flyer-photo" style="background-image:url('images/stock/praying-hands.jpg')"></div>
+                    <div class="flyer-text">
+                        <h3>Istikhara for Marriage & Life Decisions</h3>
+                        <p class="sub">Sincere prayer-based guidance for family, career, and marriage matters</p>
+                        <div class="flyer-divider"></div>
+                        <p class="contact-name">Professor Palmist MA Shah</p>
+                        <p class="contact-num">+1 (619) 432-0452</p>
+                    </div>
                 </div>
+                <div class="flyer-card">
+                    <div class="flyer-photo" style="background-image:url('images/stock/quran-reading.jpg')"></div>
+                    <div class="flyer-text">
+                        <h3>Rohani Ilaj — Quranic Spiritual Healing</h3>
+                        <p class="sub">Ruqyah and Sunnah-based healing for emotional and spiritual distress</p>
+                        <div class="flyer-divider"></div>
+                        <p class="contact-name">Professor Palmist MA Shah</p>
+                        <p class="contact-num">+1 (619) 432-0452</p>
+                    </div>
+                </div>
+                <div class="flyer-card">
+                    <div class="flyer-photo" style="background-image:url('images/stock/wedding-couple.jpg')"></div>
+                    <div class="flyer-text">
+                        <h3>Manpasand Shadi ka Taweez & Wazifa</h3>
+                        <p class="sub">Guidance for those seeking their chosen marriage, with family understanding</p>
+                        <div class="flyer-divider"></div>
+                        <p class="contact-name">Professor Palmist MA Shah</p>
+                        <p class="contact-num">+1 (619) 432-0452</p>
+                    </div>
+                </div>
+                <div class="flyer-card">
+                    <div class="flyer-photo" style="background-image:url('images/stock/pendulum-incense.jpg')"></div>
+                    <div class="flyer-text">
+                        <h3>Black Magic Removal (Kala Jadu ka Ilaj)</h3>
+                        <p class="sub">Quranic Ruqyah for negative energy, evil eye, and protection</p>
+                        <div class="flyer-divider"></div>
+                        <p class="contact-name">Professor Palmist MA Shah</p>
+                        <p class="contact-num">+1 (619) 432-0452</p>
+                    </div>
+                </div>
+                <div class="flyer-card">
+                    <div class="flyer-photo" style="background-image:url('images/stock/tarot-palm-reading.jpg')"></div>
+                    <div class="flyer-text">
+                        <h3>Palmistry & Astrology Consultation</h3>
+                        <p class="sub">Palm reading and astrological guidance rooted in 30+ years of experience</p>
+                        <div class="flyer-divider"></div>
+                        <p class="contact-name">Professor Palmist MA Shah</p>
+                        <p class="contact-num">+1 (619) 432-0452</p>
+                    </div>
+                </div>
+                <div class="flyer-card">
+                    <div class="flyer-photo" style="background-image:url('images/stock/couple-forehead.jpg')"></div>
+                    <div class="flyer-text">
+                        <h3>Marital Issue Resolution</h3>
+                        <p class="sub">Restoring trust and harmony through Quranic guidance and counseling</p>
+                        <div class="flyer-divider"></div>
+                        <p class="contact-name">Professor Palmist MA Shah</p>
+                        <p class="contact-num">+1 (619) 432-0452</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                 <div class="service-flyer">
                     <img src="images/services/financial-prosperity.jpeg" alt="Financial Prosperity Guidance - Islamic Wealth Solutions Houston">
                     <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Financial Prosperity & Wealth</h3><p class="text-gray-400 text-sm mb-3">Quranic Ruqyah, Istikhara, and spiritual guidance for rizq, barakah, and lasting financial stability.</p><a href="https://wa.me/16194320452?text=I%20need%20financial%20prosperity%20guidance" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
@@ -119,24 +186,8 @@
                     <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Business Problem Solutions</h3><p class="text-gray-400 text-sm mb-3">Islamic solutions for business loss, competition, partnership issues, and protection from negativity and evil eye.</p><a href="https://wa.me/16194320452?text=I%20need%20business%20problem%20solutions" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
                 </div>
                 <div class="service-flyer">
-                    <img src="images/services/divorce-healing.jpeg" alt="Divorce Healing and Recovery - Islamic Emotional Support Houston">
-                    <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Divorce Healing & Recovery</h3><p class="text-gray-400 text-sm mb-3">Compassionate support through Quran, Dua & Istikhara to heal, find clarity, and move forward with faith.</p><a href="https://wa.me/16194320452?text=I%20need%20divorce%20healing%20support" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
-                </div>
-                <div class="service-flyer">
                     <img src="images/services/career-coaching.jpeg" alt="Career and Success Coaching - Islamic Professional Guidance Houston">
                     <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Career & Success Coaching</h3><p class="text-gray-400 text-sm mb-3">Islamic wisdom paired with practical strategy — goal setting, skill development, and protection from workplace negativity.</p><a href="https://wa.me/16194320452?text=I%20need%20career%20coaching%20guidance" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
-                </div>
-                <div class="service-flyer">
-                    <img src="images/services/marital-resolution.jpeg" alt="Marital Issue Resolution - Islamic Relationship Counseling Houston">
-                    <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Marital Issue Resolution</h3><p class="text-gray-400 text-sm mb-3">Restore love, trust, and harmony through Quranic guidance, authentic duas, and spiritual counseling for couples.</p><a href="https://wa.me/16194320452?text=I%20need%20marital%20issue%20resolution" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
-                </div>
-                <div class="service-flyer flex flex-col">
-                    <img src="images/stock/pendulum-incense.jpg" alt="Black Magic Removal Kala Jadu ka Ilaj Houston" class="w-full h-48 object-cover">
-                    <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Black Magic Removal (Kala Jadu ka Ilaj)</h3><p class="text-gray-400 text-sm mb-3">Quranic Ruqyah for detecting and removing the effects of black magic (kala jadu), evil eye, and negative energy, with spiritual protection so it does not return.</p><a href="https://wa.me/16194320452?text=I%20need%20black%20magic%20removal" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
-                </div>
-                <div class="service-flyer flex flex-col">
-                    <img src="images/stock/wedding-couple.jpg" alt="Manpasand Shadi ka Taweez Wazifa Dua Houston" class="w-full h-48 object-cover">
-                    <div class="p-5 bg-slate-900"><h3 class="text-lg font-bold text-amber-400 mb-2">Manpasand Shadi ka Taweez & Wazifa</h3><p class="text-gray-400 text-sm mb-3">Sincere Islamic guidance — wazifa, taweez, and dua — for those seeking their chosen marriage (manpasand shadi) with family understanding, rooted in Quran and Sunnah.</p><a href="https://wa.me/16194320452?text=I%20need%20manpasand%20shadi%20guidance" target="_blank" class="text-amber-400 font-bold text-sm">Ask on WhatsApp →</a></div>
                 </div>
             </div>
 
@@ -144,10 +195,6 @@
             <div class="mt-16 max-w-4xl mx-auto text-gray-400 text-sm leading-relaxed space-y-3">
                 <p>Professor MA Shah provides authentic Islamic spiritual guidance for a wide range of life matters, including <strong class="text-amber-400">black magic removal</strong> (kala jadu ka ilaj), <strong class="text-amber-400">manpasand shadi ka taweez</strong>, wazifa, and dua for love marriage, resolving <strong class="text-amber-400">rishton ki bandish</strong> (blocked relationships), <strong class="text-amber-400">karobari bandish</strong> (business obstacles), <strong class="text-amber-400">talaq ka masla</strong> (divorce issues), <strong class="text-amber-400">mian biwi ka jhagra</strong> (marital disputes), and <strong class="text-amber-400">aulad ki bandish</strong> (delays in having children).</p>
                 <p>All guidance is offered through Quranic Ruqyah, authentic Istikhara, and Sunnah-based wazifa — with honesty about what Islamic spiritual guidance can and cannot promise. Available for free initial consultation via WhatsApp, serving clients in Houston, Texas and worldwide.</p>
-            </div>
-            <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto mt-10">
-                <img src="images/stock/quran-reading.jpg" alt="Quranic guidance and Ruqyah Houston Texas" class="rounded-lg border border-amber-500/20 w-full h-48 object-cover">
-                <img src="images/stock/praying-hands.jpg" alt="Dua and spiritual guidance Houston Texas" class="rounded-lg border border-amber-500/20 w-full h-48 object-cover">
             </div>
         </div>
     </section>
