@@ -499,6 +499,18 @@
                 if (typeof gtag !== 'undefined') { gtag('event', 'generate_lead'); }
             });
         });
+        var servicesEl = document.getElementById('services');
+        if (servicesEl) {
+            var contentsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        oaiq("measure", "contents_viewed", { type: "contents" });
+                        contentsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            contentsObserver.observe(servicesEl);
+        }
     </script>
 </body>
 </html>
