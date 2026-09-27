@@ -187,7 +187,7 @@
             <p class="text-lg text-gray-200 mb-3">Hisab &bull; Zaicha &bull; Ismay Azam &bull; Wazifa &bull; Dua</p>
             <p class="text-gray-300 mb-8">30+ Years Experience &bull; TV & Media Featured &bull; Serving Houston, Texas, USA & Worldwide</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/16892674004?text=Free%20Istikhara%20consultation" target="_blank" class="btn-primary text-white font-bold py-4 px-8 rounded-lg">📱 Get in Touch</a>
+                <a href="https://wa.me/16892674004?text=Free%20Istikhara%20consultation" target="_blank" onclick="return gtagSendEvent('https://wa.me/16892674004?text=Free%20Istikhara%20consultation');" class="btn-primary text-white font-bold py-4 px-8 rounded-lg">📱 Get in Touch</a>
                 <a href="#services" class="btn-outline border-2 border-amber-400 text-amber-300 font-bold py-4 px-8 rounded-lg">Our Services</a>
             </div>
         </div>
@@ -415,7 +415,7 @@
             <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">Free Consultation — Houston, Texas</h2>
             <p class="text-lg text-gray-400 mb-12">Message any time for free istikhara, astrology, or palmistry guidance. Private and confidential.</p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="https://wa.me/16892674004" target="_blank" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-lg transition">Start a Conversation</a>
+                <a href="https://wa.me/16892674004" target="_blank" onclick="return gtagSendEvent('https://wa.me/16892674004');" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-8 rounded-lg transition">Start a Conversation</a>
                 <a href="tel:+16194320452" class="border-2 border-amber-400 text-amber-300 hover:bg-amber-500/10 font-bold py-4 px-8 rounded-lg transition">📞 Call: +1 (619) 432-0452</a>
             </div>
             <p class="text-gray-500 text-sm mt-4">💬 WhatsApp for messages &nbsp;•&nbsp; 📞 Direct international calls: +1 (619) 432-0452</p>
@@ -537,6 +537,24 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-NGMR9KH346');
+    </script>
+
+    <!-- Google tag (gtag.js) event - delayed navigation helper -->
+    <script>
+        // Helper function to delay opening a URL until a gtag event is sent.
+        // Call it in response to an action that should navigate to a URL.
+        function gtagSendEvent(url) {
+            var callback = function () {
+                if (typeof url === 'string') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion_event_contact_1', {
+                'event_callback': callback,
+                'event_timeout': 2000,
+            });
+            return false;
+        }
     </script>
 
     <!-- Meta Pixel -->
