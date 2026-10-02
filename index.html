@@ -192,27 +192,63 @@
     </nav>
 
     <!-- Hero -->
-    <section class="hero-video-wrap px-6" style="padding-top:calc(5rem + 56px);">
-        <div class="hero-static-bg">
-            <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;object-position:center 15%;transform:scale(1.08);animation:heroZoom 18s ease-in-out infinite alternate;">
-                <source src="video-hero.mp4" type="video/mp4">
-                <img src="images/hero-banner-gold.jpeg" alt="Professor MA Shah">
-            </video>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content text-center max-w-4xl">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4">Professor MA Shah</h1>
-            <p class="text-xl md:text-2xl text-amber-300 mb-4 font-semibold">Best Astrologer & Palmist in Houston, Texas, USA</p>
-            <p class="text-md text-gray-300 mb-2">📍 Proudly based in Houston, Texas — serving local clients across the Houston metro area, nationwide USA, and worldwide</p>
-            <p class="text-lg text-amber-400 mb-4 font-semibold">FREE Istikhara &bull; Spiritual Guidance &bull; Islamic Scholar</p>
-            <p class="text-lg text-gray-200 mb-3">Hisab &bull; Zaicha &bull; Ismay Azam &bull; Wazifa &bull; Dua</p>
-            <p class="text-gray-300 mb-8">30+ Years Experience &bull; TV & Media Featured &bull; Serving Houston, Texas, USA & Worldwide</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/16892674004?text=Free%20Istikhara%20consultation" target="_blank" onclick="return gtagSendEvent('https://wa.me/16892674004?text=Free%20Istikhara%20consultation');" class="btn-primary text-white font-bold py-4 px-8 rounded-lg">📱 WhatsApp Us</a>
-                <a href="#services" class="btn-outline border-2 border-amber-400 text-amber-300 font-bold py-4 px-8 rounded-lg">Our Services</a>
+    <!-- Hero — Split: Text Left, Video Right -->
+    <section style="display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 56px);margin-top:56px;">
+        <!-- LEFT: Text -->
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:4rem 3.5rem;background:#0a0e1a;border-right:1px solid rgba(251,191,36,0.12);">
+            <p style="font-size:0.72rem;letter-spacing:0.15em;color:#f59e0b;text-transform:uppercase;font-weight:600;margin-bottom:1.5rem;">☪️ Professor MA Shah — Houston, Texas</p>
+            <h1 style="font-size:clamp(2rem,3.5vw,3.2rem);font-weight:800;line-height:1.1;color:#fff;margin-bottom:1.2rem;background:linear-gradient(135deg,#fff 30%,#fde68a 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Professor MA Shah<br><span style="font-size:0.65em;">Best Astrologer & Palmist<br>in Houston, Texas, USA</span></h1>
+            <p style="font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:0.8rem;border-left:2px solid rgba(251,191,36,0.3);padding-left:1rem;">FREE Istikhara · Spiritual Guidance · Islamic Scholar<br>Hisab · Zaicha · Ismay Azam · Wazifa · Dua</p>
+            <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);margin-bottom:2rem;">30+ Years Experience · TV & Media Featured · Worldwide</p>
+            <div style="display:flex;flex-direction:column;gap:0.9rem;align-items:flex-start;">
+                <a href="https://wa.me/16892674004?text=Free%20Istikhara%20consultation" target="_blank" onclick="return gtagSendEvent('https://wa.me/16892674004?text=Free%20Istikhara%20consultation');" style="display:inline-flex;align-items:center;gap:0.7rem;background:#25D366;color:#fff;font-weight:700;font-size:0.9rem;padding:0.95rem 2rem;border-radius:0.5rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.25);">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438C8.34 21.475 10.11 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.5c-1.729 0-3.335-.51-4.687-1.386l-.336-.2-3.478 1.036 1.036-3.478-.2-.336C3.51 15.335 3 13.729 3 12 3 6.977 6.977 3 12 3s9 3.977 9 9-3.977 9-9 9z"/></svg>
+                    📱 WhatsApp Us — Free Consultation
+                </a>
+                <a href="#services" style="display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(251,191,36,0.3);color:rgba(251,191,36,0.8);font-size:0.88rem;padding:0.9rem 2rem;border-radius:0.5rem;text-decoration:none;transition:all 0.2s;">Our Services ↓</a>
+            </div>
+            <!-- Trust strip -->
+            <div style="display:flex;margin-top:2.5rem;border:1px solid rgba(251,191,36,0.15);">
+                <div style="flex:1;padding:0.9rem;text-align:center;border-right:1px solid rgba(251,191,36,0.15);"><div style="font-size:1.3rem;font-weight:800;color:#f59e0b;">30+</div><div style="font-size:0.6rem;color:rgba(255,255,255,0.35);letter-spacing:0.05em;">YEARS</div></div>
+                <div style="flex:1;padding:0.9rem;text-align:center;border-right:1px solid rgba(251,191,36,0.15);"><div style="font-size:1.3rem;font-weight:800;color:#f59e0b;">TV</div><div style="font-size:0.6rem;color:rgba(255,255,255,0.35);letter-spacing:0.05em;">FEATURED</div></div>
+                <div style="flex:1;padding:0.9rem;text-align:center;border-right:1px solid rgba(251,191,36,0.15);"><div style="font-size:1.3rem;font-weight:800;color:#f59e0b;">Free</div><div style="font-size:0.6rem;color:rgba(255,255,255,0.35);letter-spacing:0.05em;">ISTIKHARA</div></div>
+                <div style="flex:1;padding:0.9rem;text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:#f59e0b;">World</div><div style="font-size:0.6rem;color:rgba(255,255,255,0.35);letter-spacing:0.05em;">WIDE</div></div>
             </div>
         </div>
+        <!-- RIGHT: Video -->
+        <div style="position:relative;overflow:hidden;background:#000;">
+            <video id="heroVideo" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
+                <source src="video-hero.mp4" type="video/mp4">
+                <img src="images/hero-banner-gold.jpeg" alt="Professor MA Shah" style="width:100%;height:100%;object-fit:cover;">
+            </video>
+            <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,14,26,0.35) 0%,transparent 50%);pointer-events:none;"></div>
+            <!-- Available badge -->
+            <div style="position:absolute;top:1.5rem;left:1.5rem;background:rgba(10,14,26,0.82);border:1px solid rgba(251,191,36,0.25);padding:0.55rem 1rem;display:flex;align-items:center;gap:0.6rem;backdrop-filter:blur(8px);border-radius:0.3rem;">
+                <div style="width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blinkDot 2s infinite;flex-shrink:0;"></div>
+                <span style="font-size:0.7rem;color:rgba(255,255,255,0.7);">Available for consultation</span>
+            </div>
+            <!-- Volume button -->
+            <button id="volBtn" onclick="toggleHeroVol()" title="Toggle sound" style="position:absolute;bottom:1.5rem;right:1.5rem;background:rgba(10,14,26,0.82);border:1px solid rgba(251,191,36,0.3);color:#fbbf24;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(8px);z-index:10;">
+                <svg id="icoMute" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                <svg id="icoSound" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            </button>
+        </div>
     </section>
+    <style>
+        @keyframes blinkDot{0%,100%{opacity:1}50%{opacity:0.3}}
+        @media(max-width:768px){
+            .hero-split{grid-template-columns:1fr!important;}
+            .hero-split-video{height:56vw!important;}
+        }
+    </style>
+    <script>
+        function toggleHeroVol(){
+            var v=document.getElementById('heroVideo');
+            v.muted=!v.muted;
+            document.getElementById('icoMute').style.display=v.muted?'block':'none';
+            document.getElementById('icoSound').style.display=v.muted?'none':'block';
+        }
+    </script>
 
     <!-- Quranic Verse Banner -->
     <div style="background:#0d0a06; border-top:1px solid rgba(217,164,65,0.2); border-bottom:1px solid rgba(217,164,65,0.2); padding:2rem 1.5rem; text-align:center;">
