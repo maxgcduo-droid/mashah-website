@@ -123,9 +123,15 @@
         .reveal.in-view { opacity: 1; transform: translateY(0); }
         nav.glass-nav { background: rgba(10,14,26,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(251,191,36,0.12); }
         .hero-video-wrap { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .hero-static-bg { position: absolute; inset: 0; z-index: 0; }
-        .hero-static-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; transform: scale(1.08); animation: heroZoom 18s ease-in-out infinite alternate; }
+        .hero-static-bg { position: absolute; inset: 0; z-index: 0; background: #0a0e1a; }
+        .hero-static-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transform: scale(1.08); animation: heroZoom 18s ease-in-out infinite alternate; display: block !important; visibility: visible !important; }
         @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1.16); } }
+        @media (max-width: 768px) {
+            .hero-static-bg { position: absolute; inset: 0; z-index: 0; }
+            .hero-static-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 20%; display: block !important; }
+            .hero-video-wrap { min-height: 100svh; padding-top: calc(3rem + 56px) !important; }
+            .hero-overlay { background: linear-gradient(180deg, rgba(10,14,26,0.5) 0%, rgba(10,14,26,0.75) 50%, rgba(10,14,26,0.97) 100%) !important; }
+        }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,14,26,0.55) 0%, rgba(10,14,26,0.85) 60%, rgba(10,14,26,0.97) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
         .hero-content h1 { background: linear-gradient(135deg, #fff 30%, #fde68a 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em; }
